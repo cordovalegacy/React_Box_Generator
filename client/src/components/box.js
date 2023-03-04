@@ -1,18 +1,17 @@
+
 const Box = (props) => {
 
-    const boxColor = props.color
-    const newBoxes = [...boxColor]
-
-    const generateBoxes = newBoxes.map((newBox, index) => {
-        <p key={index}>{newBox}</p>
-    })
-
-    console.log(generateBoxes)
-
+    const mapBoxesColor = props.boxMapColor
+    const mapBoxesSize = props.boxMapSize
+    console.log(props)
+    const boxes = [{mapBoxesColor, mapBoxesSize}]
+    
     return (
         <div>
-            <h3>{boxColor}</h3>
-
+            <div className="box-wrapper">
+                {console.log(props.boxMapColor)}
+                {boxes.map((box, index) => <div style={{backgroundColor: box.mapBoxesColor, width: box.mapBoxesSize + "px", height: box.mapBoxesSize + "px"}} key={index}></div>)}
+            </div>
         </div>
     )
 }
