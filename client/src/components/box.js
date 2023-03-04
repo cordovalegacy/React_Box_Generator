@@ -1,18 +1,24 @@
 
 const Box = (props) => {
 
-    const mapBoxesColor = props.boxMapColor
-    const mapBoxesSize = props.boxMapSize
-    console.log(props)
-    const boxes = [{mapBoxesColor, mapBoxesSize}]
-    
+    const { boxList } = props
+
     return (
-        <div>
             <div className="box-wrapper">
-                {console.log(props.boxMapColor)}
-                {boxes.map((box, index) => <div style={{backgroundColor: box.mapBoxesColor, width: box.mapBoxesSize + "px", height: box.mapBoxesSize + "px"}} key={index}></div>)}
+                {boxList.map((box, index) => {
+                    return (
+                        <div
+                            style=
+                            {{
+                                backgroundColor: box.color,
+                                width: box.size + "px",
+                                height: box.size + "px"
+                            }}
+                            key={index}>
+                        </div>
+                    )
+                })}
             </div>
-        </div>
     )
 }
 
